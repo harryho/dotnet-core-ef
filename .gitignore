@@ -1,6 +1,7 @@
 # DotNet Core
 Debug
 obj
+bin
 
 local*
 
