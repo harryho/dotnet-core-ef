@@ -19,11 +19,11 @@ The demo project is re-create the well-known Northwind sample database with .Net
 
 ### ER Diagram
 
-* The database is the same as my another repository [db](https://github.com/harryho/db)
+* The database is the same as my another repository [db](https://github.com/harryho/db-samples)
 
 * Here I recap the ER diagram below
 
-![northwind_er_diagram](screenshots/northwind_er_diagram.png)
+![northwind_er_diagram](screenshots/northwindcore_er_diagram.png)
 
 
 ### How to test the project
@@ -95,5 +95,4 @@ dotnet ef dbcontext scaffold --force  --output-dir Data "Server=localhost;Databa
 dotnet ef dbcontext scaffold --force  --output-dir Data "Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" "Pomelo.EntityFrameworkCore.MySql" --tables table_001 table_002
 
 ```
-
 
