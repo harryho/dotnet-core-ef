@@ -8,7 +8,7 @@ The demo project is re-create the well-known Northwind sample database with .Net
 
 * .Net Core 2+
 * .Net Core entity framework
-* MySql 5.7+ 
+* MySql 5.7+
 
 
 ### Development Env 
@@ -26,7 +26,7 @@ The demo project is re-create the well-known Northwind sample database with .Net
 ![northwind_er_diagram](screenshots/northwindcore_er_diagram.png)
 
 
-### How to test the project
+### Quick Start
 
 #### Clone the project
 
@@ -35,7 +35,7 @@ git clone https://github.com/harryho/dotnet-core-ef.git
 
 ```
 
-#### Update the database 
+#### Update the database connection
 
 * If you don't update the database name to something else instead of Northwind, you can simply change the name "Northwind" in the file appsetting.json
 
@@ -47,7 +47,14 @@ git clone https://github.com/harryho/dotnet-core-ef.git
   }
 ```
 
-### Create / Overwrite Database via Code First approach
+#### Create the Database via Code First
+
+```bash
+dotnet ef database --update 
+```
+
+
+### Recreate / Update Database via Code First approach
 
 
 ```bash
@@ -81,7 +88,9 @@ Database reversing is not within the scope of this project, but it is a tool for
 * Create a scaffolding code base from existing database, e.g. ExistingDatabase
 
 ```sh
-dotnet ef dbcontext scaffold "Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" "Pomelo.EntityFrameworkCore.MySql"
+dotnet ef dbcontext scaffold \
+"Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" \
+"Pomelo.EntityFrameworkCore.MySql"
 ```
 
 #### Overwrite 
@@ -89,10 +98,14 @@ dotnet ef dbcontext scaffold "Server=localhost;Database=ExistingDatabase;User=Yo
 
 ```sh
 # Reverse the whole database
-dotnet ef dbcontext scaffold --force  --output-dir Data "Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" "Pomelo.EntityFrameworkCore.MySql"
+dotnet ef dbcontext scaffold --force --output-dir ReverseDBSchema \
+"Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" \
+"Pomelo.EntityFrameworkCore.MySql"
 
 # Reverse the some tables 
-dotnet ef dbcontext scaffold --force  --output-dir Data "Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" "Pomelo.EntityFrameworkCore.MySql" --tables table_001 table_002
+dotnet ef dbcontext scaffold --force  --output-dir ReverseDBSchema \
+"Server=localhost;Database=ExistingDatabase;User=YourUserId;Password=YourPassword;" \
+"Pomelo.EntityFrameworkCore.MySql" --tables table_001 table_002
 
 ```
 
